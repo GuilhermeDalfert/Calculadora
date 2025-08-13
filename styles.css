@@ -1,26 +1,28 @@
 body{
-    background-color: lightsalmon;
+    background-color: gray;
     font-family: 'Inter', sans-serif;
 }
 
 #Calculadora{
     background-color: black;
-    display: grid;
 }
 
 #passada{
-    grid-row: 1;
     color: grey;
 }
 
 #resultadoAtual{
-    grid-row: 2;
     color: white;
 }
 
+/* config agrup de botões */
+
 button{
     padding: 10px;
-    margin: 5px;
+    margin: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }
 
 .normais{
@@ -33,14 +35,17 @@ button{
     color: white;
 }
 
+/* container botões */
 
 #botoes{
-    grid-row: 3;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     width: 350px;
-    height:500px;
+    height: 500px;
 }
+
+/* botões individuais */
 
 #igual{
     background-color: orange;
@@ -61,72 +66,72 @@ button{
     grid-column: 2;
 }
 
-#\%{
-    grid-row: 5;
+#porcentagem{
+    grid-row: 1;
     grid-column: 3;
 }
 
-#\÷{
+#div{
     grid-row: 1;
     grid-column: 4;
 }
 
-#\7{
+#sete{
     grid-row: 2;
     grid-column: 1;
 }
 
-#\8{
+#oito{
     grid-row: 2;
     grid-column: 2;
 }
 
-#\9{
+#nove{
     grid-row: 2;
     grid-column: 3;
 }
 
-#\x{
+#mult{
     grid-row: 2;
     grid-column: 4;
 }
 
-#\4{
+#quatro{
     grid-row: 3;
     grid-column: 1;
 }
 
-#\5{
+#cinco{
     grid-row: 3;
     grid-column: 2;
 }
 
-#\6{
+#seis{
     grid-row: 3;
     grid-column: 3;
 }
 
-#\-{
+#sub{
     grid-row: 3;
     grid-column: 4;
 }
 
-#\1{
+#um{
     grid-row: 4;
     grid-column: 1;
 }
 
-#\2{
+#dois{
     grid-row: 4;
     grid-column: 2;
 }
 
-#\3{
+#tres{
     grid-row: 4;
     grid-column: 3;
 }
 
-#\+{
+#add{
     grid-row: 4;
     grid-column: 4;
 }
@@ -136,12 +141,12 @@ button{
     grid-column: 1;
 }
 
-#\0{
+#zero{
     grid-row: 5;
     grid-column: 2;
 }
 
-#\,{
-    grid-row: 1;
+#virgula{
+    grid-row: 5;
     grid-column: 3;
 }

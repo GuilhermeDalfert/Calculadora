@@ -1,28 +1,43 @@
 body{
     background-color: gray;
     font-family: 'Inter', sans-serif;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 #Calculadora{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: black;
+    border-radius: 50px;
+    width: 400px;
+    height: 650px;
 }
 
 #passada{
-    color: grey;
+    padding-top: 10px;
+    color: gray;
+    width: 300px;
+    text-align: right;
+    font-size: 22px;
 }
 
 #resultadoAtual{
     color: white;
+    width: 300px;
+    text-align: right;
+    font-size: 35px;
 }
 
 /* config agrup de botões */
 
 button{
-    padding: 10px;
-    margin: 10px;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
 }
 
 .normais{
@@ -43,6 +58,9 @@ button{
     grid-template-rows: repeat(5, 1fr);
     width: 350px;
     height: 500px;
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 20px;
 }
 
 /* botões individuais */
@@ -51,7 +69,7 @@ button{
     background-color: orange;
     color: white;
     grid-row: 5;
-    grid-column:4;
+    grid-column: 4;
 }
 
 #CE{

@@ -18,7 +18,7 @@ body{
 }
 
 #passada{
-    padding-top: 10px;
+    padding-top: 20px;
     color: gray;
     width: 300px;
     text-align: right;
@@ -57,7 +57,7 @@ button{
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
     width: 350px;
-    height: 500px;
+    height: 465px;
     align-items: center;
     justify-items: center;
     margin-bottom: 20px;

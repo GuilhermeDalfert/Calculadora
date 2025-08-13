@@ -1,5 +1,5 @@
 body{
-    background-color: gray;
+    background-color: rgb(0, 180, 0);
     font-family: 'Inter', sans-serif;
     display: grid;
     align-items: center;
@@ -11,10 +11,11 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: black;
-    border-radius: 50px;
     width: 400px;
     height: 650px;
+    background-color: rgb(42, 42, 59);
+    border-radius: 50px;
+    box-shadow: 10px 10px 20px black;
 }
 
 #passada{
@@ -36,8 +37,10 @@ body{
 
 button{
     border-radius: 50%;
+    border-style: none;
     width: 70px;
     height: 70px;
+    box-shadow: 3px 3px 8px black;
 }
 
 .normais{
@@ -46,7 +49,7 @@ button{
 }
 
 .operadores{
-    background-color: rgb(204, 85, 0);
+    background-color: rgb(0, 51, 0);
     color: white;
 }
 
@@ -66,7 +69,7 @@ button{
 /* botões individuais */
 
 #igual{
-    background-color: orange;
+    background-color:  green;
     color: white;
     grid-row: 5;
     grid-column: 4;
@@ -74,10 +77,17 @@ button{
 
 #CE{
     background-color: rgb(42, 42, 59);
-    color: orange;
+    color: green;
     grid-row: 1;
     grid-column: 1;
 }
+
+/*#CE:hover{
+    background-color: rgb(42, 42, 59);
+    color: orange;
+    grid-row: 1;
+    grid-column: 1;
+}*/
 
 #C{
     grid-row: 1;

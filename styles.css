@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(0, 180, 0);
+    background-color: white;
     font-family: 'Inter', sans-serif;
     display: grid;
     align-items: center;
@@ -24,6 +24,9 @@ body{
     width: 300px;
     text-align: right;
     font-size: 22px;
+    min-height: 27px; /*pro grid de botões não subir quando o <p> estiver vazio*/
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 #resultadoAtual{
@@ -31,6 +34,9 @@ body{
     width: 300px;
     text-align: right;
     font-size: 35px;
+    min-height: 40px; /*pro grid de botões não subir quando o <p> estiver vazio*/
+    white-space: nowrap; 
+    overflow: hidden;
 }
 
 /* config agrup de botões */
@@ -41,6 +47,10 @@ button{
     width: 70px;
     height: 70px;
     box-shadow: 3px 3px 8px black;
+}
+
+button:active {
+    box-shadow: inset 3px 3px 8px black; 
 }
 
 .normais{
@@ -174,7 +184,7 @@ button{
     grid-column: 2;
 }
 
-#virgula{
+#ponto{
     grid-row: 5;
     grid-column: 3;
 }

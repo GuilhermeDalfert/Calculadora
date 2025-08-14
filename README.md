@@ -1,3 +1,4 @@
 # Calculadora
 
-Começar back-end e ver a função hoover para o front.
+Lista do que falta fazer:
+Melhorar botão porcentagem e fazer botão mais ou menos.

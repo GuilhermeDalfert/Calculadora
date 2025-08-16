@@ -38,6 +38,7 @@ porcentagem.addEventListener("click", () => {
 })
 
 maismenos.addEventListener("click", () => {
+    calculoPassado.textContent = "";
     if (calculoAtual.textContent != ""){
         if(calculoAtual.textContent.includes("+") || calculoAtual.textContent.includes("-")){
             for (let i = calculoAtual.textContent.length - 1; i >= 0; i--){
@@ -70,22 +71,9 @@ clearUm.addEventListener("click", () => {
 //Envia
 igual.addEventListener("click", () => {
     let aux = calculoAtual.textContent;
-    if(calculoAtual.textContent.includes("%")){
-        calculoAtual.textContent = resolvePctgm(calculoAtual.textContent);
-    }
-    let resultado = eval(calculoAtual.textContent);
+    let resultado = math.evaluate(calculoAtual.textContent);
     calculoPassado.textContent = aux + "=";
     calculoAtual.textContent = resultado;
 });
 
-function resolvePctgm (equacao){
-    let operadores = ["+", "-", "*", "/"];
 
-    if(!operadores.some(operador => equacao.includes(operador))){
-        equacao = equacao.replace(/%/g, "/100");
-    }
-
-    //fazer um for para encontrar a posição do "%" e a partir daí lidar com ele dependendo da operação que vem antes
-
-    return equacao;
-}

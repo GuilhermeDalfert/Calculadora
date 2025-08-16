@@ -37,6 +37,25 @@ porcentagem.addEventListener("click", () => {
     calculoAtual.textContent += porcentagem.textContent;
 })
 
+maismenos.addEventListener("click", () => {
+    if (calculoAtual.textContent != ""){
+        if(calculoAtual.textContent.includes("+") || calculoAtual.textContent.includes("-")){
+            for (let i = calculoAtual.textContent.length - 1; i >= 0; i--){
+                if(calculoAtual.textContent[i]=="+"){
+                    calculoAtual.textContent = calculoAtual.textContent.substring(0, i) + "-" + calculoAtual.textContent.substring(i+1);
+                    break;
+                }
+                else if(calculoAtual.textContent[i]=="-"){
+                    calculoAtual.textContent = calculoAtual.textContent.substring(0, i) + "+" + calculoAtual.textContent.substring(i+1);
+                    break;
+                }
+            }
+        }
+        else{
+            calculoAtual.textContent = "-" + calculoAtual.textContent;
+        }
+    }
+})
 
 //Outros
 clearT.addEventListener("click", () => {
@@ -50,8 +69,23 @@ clearUm.addEventListener("click", () => {
 
 //Envia
 igual.addEventListener("click", () => {
-    //*calculoAtual.textContent = calculoAtual.textContent.replace(/%/g, "/100");*//
+    let aux = calculoAtual.textContent;
+    if(calculoAtual.textContent.includes("%")){
+        calculoAtual.textContent = resolvePctgm(calculoAtual.textContent);
+    }
     let resultado = eval(calculoAtual.textContent);
-    calculoPassado.textContent = calculoAtual.textContent + "=";
+    calculoPassado.textContent = aux + "=";
     calculoAtual.textContent = resultado;
 });
+
+function resolvePctgm (equacao){
+    let operadores = ["+", "-", "*", "/"];
+
+    if(!operadores.some(operador => equacao.includes(operador))){
+        equacao = equacao.replace(/%/g, "/100");
+    }
+
+    //fazer um for para encontrar a posição do "%" e a partir daí lidar com ele dependendo da operação que vem antes
+
+    return equacao;
+}

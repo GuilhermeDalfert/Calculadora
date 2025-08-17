@@ -73,7 +73,7 @@ igual.addEventListener("click", () => {
     let aux = calculoAtual.textContent;
     let resultado = math.evaluate(calculoAtual.textContent);
     calculoPassado.textContent = aux + "=";
-    calculoAtual.textContent = resultado;
+    calculoAtual.textContent = math.round(resultado*10000) / 10000;
 });
 
 

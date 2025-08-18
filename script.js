@@ -13,8 +13,14 @@ let calculoAtual = document.getElementById("resultadoAtual");
 
 document.querySelectorAll(".numero").forEach(botao => {
     botao.addEventListener("click", () => {
-    calculoPassado.textContent = "";
-    calculoAtual.textContent += botao.textContent;
+        let tam = calculoAtual.textContent.length;
+        if(calculoAtual.textContent[tam-1]=="%"){
+            calculoPassado.textContent = "";
+        }
+        else{
+            calculoPassado.textContent = "";
+            calculoAtual.textContent += botao.textContent;
+        }
 });
 })
 
@@ -25,10 +31,29 @@ ponto.addEventListener("click", () => {
 
 //Operadores
 
+let operators = ["+", "-", "/", "*"];
+
 document.querySelectorAll(".operadores").forEach(botao => {
     botao.addEventListener("click", () => {
-    calculoPassado.textContent = "";
-    calculoAtual.textContent += botao.textContent;
+        tam = calculoAtual.textContent.length;
+        if(operators.includes(calculoAtual.textContent[tam-1])){
+            if((calculoAtual.textContent[tam-1] == "/" || calculoAtual.textContent[tam-1] == "*") && (botao.textContent == "-")){
+                calculoPassado.textContent = "";
+                calculoAtual.textContent += botao.textContent;
+            }
+            else if(calculoAtual.textContent.slice(tam-2) == "*-" || calculoAtual.textContent.slice(tam-2) == "/-"){
+                calculoPassado.textContent = "";
+                calculoAtual.textContent = calculoAtual.textContent.slice(0, tam-2) + botao.textContent; 
+            }
+            else{
+                calculoPassado.textContent = "";
+                calculoAtual.textContent = calculoAtual.textContent.slice(0, tam-1) + botao.textContent; 
+            }
+        }
+        else{
+            calculoPassado.textContent = "";
+            calculoAtual.textContent += botao.textContent;
+        }
 });
 });
 

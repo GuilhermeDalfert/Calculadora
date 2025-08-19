@@ -13,8 +13,8 @@ let calculoAtual = document.getElementById("resultadoAtual");
 
 document.querySelectorAll(".numero").forEach(botao => {
     botao.addEventListener("click", () => {
-        let tam = calculoAtual.textContent.length;
-        if(calculoAtual.textContent[tam-1]=="%"){
+        let tam1 = calculoAtual.textContent.length;
+        if(calculoAtual.textContent[tam1-1]=="%"){
             calculoPassado.textContent = "";
         }
         else{
@@ -24,30 +24,40 @@ document.querySelectorAll(".numero").forEach(botao => {
 });
 })
 
+let operators = ["+", "-", "/", "*"];
+
 ponto.addEventListener("click", () => {
-    calculoPassado.textContent = "";
-    calculoAtual.textContent += ponto.textContent;
+    let tam2 = calculoAtual.textContent.length;
+    if(calculoAtual.textContent[tam2-1]=="."){
+        calculoPassado.textContent = "";
+    }
+    else if(operators.includes(calculoAtual.textContent[tam2-1]) || calculoAtual.textContent == ""){
+        calculoAtual.textContent = calculoAtual.textContent + "0."
+
+    }
+    else{
+        calculoPassado.textContent = "";
+        calculoAtual.textContent += ponto.textContent; 
+    }
 })
 
 //Operadores
 
-let operators = ["+", "-", "/", "*"];
-
 document.querySelectorAll(".operadores").forEach(botao => {
     botao.addEventListener("click", () => {
-        tam = calculoAtual.textContent.length;
-        if(operators.includes(calculoAtual.textContent[tam-1])){
-            if((calculoAtual.textContent[tam-1] == "/" || calculoAtual.textContent[tam-1] == "*") && (botao.textContent == "-")){
+        let tam3 = calculoAtual.textContent.length;
+        if(operators.includes(calculoAtual.textContent[tam3-1])){
+            if((calculoAtual.textContent[tam3-1] == "/" || calculoAtual.textContent[tam3-1] == "*") && (botao.textContent == "-")){
                 calculoPassado.textContent = "";
                 calculoAtual.textContent += botao.textContent;
             }
-            else if(calculoAtual.textContent.slice(tam-2) == "*-" || calculoAtual.textContent.slice(tam-2) == "/-"){
+            else if(calculoAtual.textContent.slice(tam3-2) == "*-" || calculoAtual.textContent.slice(tam3-2) == "/-"){
                 calculoPassado.textContent = "";
-                calculoAtual.textContent = calculoAtual.textContent.slice(0, tam-2) + botao.textContent; 
+                calculoAtual.textContent = calculoAtual.textContent.slice(0, tam3-2) + botao.textContent; 
             }
             else{
                 calculoPassado.textContent = "";
-                calculoAtual.textContent = calculoAtual.textContent.slice(0, tam-1) + botao.textContent; 
+                calculoAtual.textContent = calculoAtual.textContent.slice(0, tam3-1) + botao.textContent; 
             }
         }
         else{
